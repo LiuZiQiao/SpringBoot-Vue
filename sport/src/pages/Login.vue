@@ -51,7 +51,7 @@
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click="closeDialog">取 消</el-button>
-                <el-button type="primary" @click="register":loading="logining">确 定</el-button>
+                <el-button type="primary" @click="register" loading="logining">确 定</el-button>
             </div>
         </el-dialog>
     </div>
