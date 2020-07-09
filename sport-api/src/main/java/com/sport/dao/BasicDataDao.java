@@ -1,6 +1,5 @@
 package com.sport.dao;
 
-import com.sport.common.entity.BasicEntity;
 import com.sport.entity.BasicDataEntity;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,7 +19,7 @@ public interface BasicDataDao {
      * @param type
      * @return
      */
-    List<BasicEntity> selectByType(Short type);
+    List<BasicDataEntity> selectByType(Short type);
 
     /**
      * 根据type和basicCode获取基本数据类型
@@ -74,4 +73,10 @@ public interface BasicDataDao {
      * @return
      */
     public List<BasicDataEntity> selectAll(BasicDataEntity basicDataEntity);
+
+    /**
+     * 获取所有名称，去重
+     * @return
+     */
+    public List<BasicDataEntity> getAllNames();
 }

@@ -33,11 +33,19 @@ public class SutdentServiceImpl implements StudentService {
 
     @Override
     public boolean updateStudent(StudentEntity entity) {
+        int ret = studentDao.updateByPrimaryKeySelective(entity);
+        if (ret>0){
+            return true;
+        }
         return false;
     }
 
     @Override
     public boolean deleteStudentById(Long id) {
+        boolean ret = studentDao.deleteByPrimaryKey(id);
+        if (ret){
+            return true;
+        }
         return false;
     }
 
@@ -56,7 +64,8 @@ public class SutdentServiceImpl implements StudentService {
         return flag;
     }
 
-    /*
+
+    /**
      * 获取全部
      */
     @Override
@@ -143,7 +152,8 @@ public class SutdentServiceImpl implements StudentService {
     @Override
     @Transactional(readOnly = true)
     public PageInfo<StudentVO> getPageStudentListByCondition(Integer pageStart,Integer pageSize, StudentEntity entityCondition){
-        PageInfo<StudentVO> pageVo = new PageInfo<>();//返回结果
+        //返回结果
+        PageInfo<StudentVO> pageVo = new PageInfo<>();
         //分页查询以及结果处理
         PageHelper.startPage(pageStart,pageSize);
         //查询结果

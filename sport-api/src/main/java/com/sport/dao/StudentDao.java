@@ -1,6 +1,7 @@
 package com.sport.dao;
 
 import com.sport.entity.StudentEntity;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -43,4 +44,10 @@ public interface StudentDao{
 
     public StudentEntity selectForLogin(@Param("name") String name, @Param("password") String password);
 
+    /**
+     * 通过id删除
+     * @param id
+     * @return
+     */
+    public boolean deleteByPrimaryKey(@Param("id")Long id);
 }

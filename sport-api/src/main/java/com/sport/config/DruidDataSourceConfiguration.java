@@ -17,6 +17,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.sql.SQLException;
 
+/**
+ * @author macos
+ */
 @Configuration
 @EnableTransactionManagement
 @PropertySource(value = "classpath:application-test.properties", ignoreResourceNotFound = true)

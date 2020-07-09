@@ -87,6 +87,25 @@ public class StudentController{
         return CommResult.error("添加失败。");
     }
 
+    @ApiOperation(value = "删除",response = CommResult.class)
+    @PostMapping(value = "delete",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public CommResult delete(@RequestParam("id")Long id){
+        boolean ret = studentService.deleteStudentById(id);
+        if (ret){
+            return CommResult.ok();
+        }
+        return CommResult.error("删除失败");
+    }
+
+    @ApiOperation(value = "更新数据",response = CommResult.class)
+    @PostMapping(value = "/update",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public CommResult updateStudent(HttpServletRequest request,StudentEntity entity){
+        boolean ret = studentService.updateStudent(entity);
+        if (ret){
+            return CommResult.ok();
+        }
+        return CommResult.error("修改失败");
+    }
     /**
      * 分页查询所有数据
      */
@@ -102,7 +121,6 @@ public class StudentController{
         HttpResult<StudentVO> result = new HttpResult<StudentVO>();
         PageInfo<StudentVO> pages = studentService.getPageStudentListByCondition(page,size,entity);
         result.setData(pages.getList());
-        System.out.println(result);
         return result;
     }
 
@@ -121,14 +139,21 @@ public class StudentController{
         }
     }
 
+    @ApiOperation(value = "获取全部学生",response = CommResult.class)
+    @PostMapping(value = "/getAll",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public CommResult getAll(HttpServletRequest request,StudentEntity entity){
+        List<StudentVO> list = studentService.getAllStudentListByCondition(entity);
+        return CommResult.ok(list);
+    }
+
     /**
      * 学生退出
      */
     @ApiOperation(value="学生退出", response=CommResult.class)
     @PostMapping(value = "studentLogout", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public CommResult studentLogout(HttpServletRequest request) {
-        String token = request.getHeader("token");
-        redisService.remove(token);
+//        String token = request.getHeader("token");
+//        redisService.remove(token);
         return CommResult.ok("退出成功！");
     }
 }

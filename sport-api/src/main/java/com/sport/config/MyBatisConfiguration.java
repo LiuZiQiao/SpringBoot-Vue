@@ -20,6 +20,9 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * @author macos
+ */
 @Configuration
 @EnableTransactionManagement
 @Import(DruidDataSourceConfiguration.class)

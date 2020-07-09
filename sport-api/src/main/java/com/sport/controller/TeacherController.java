@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @author macos
+ */
 @Api(value = "API - TeacherController",produces = "老师接口说明")
 @RequestMapping(value = "teacher")
 @ResponseBody

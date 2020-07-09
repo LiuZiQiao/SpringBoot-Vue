@@ -10,7 +10,23 @@ import java.util.List;
 @Repository
 public interface TeacherDao {
 
-    public TeacherEntity selectForLogin(@Param(value = "name") String name, @Param(value = "password") String password);
+
+    public int insert(TeacherEntity entity);
+
+    public int updateByPrimaryKey(TeacherEntity entity);
+
+
+
+    public int updateByPrimaryKeySelective(TeacherEntity entity);
+
+
+    public int deleteByPrimaryKey(Long id);
+
+
+    public TeacherEntity selectByPrimaryKey(Long id);
 
     public List<TeacherEntity> selectAll(TeacherEntity entity);
+
+
+    public TeacherEntity selectForLogin(@Param("name")String name, @Param("password")String password);
 }
