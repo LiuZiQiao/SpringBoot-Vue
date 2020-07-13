@@ -16,14 +16,16 @@
 			<input type="button" value="提交"/>
 			<input type="reset" value="重置"/>
 		</form>
+		
 		<h1>el 表单</h1>
 		
 		<el-form>
 			<el-form-item>
+				<i class="el-icon-user"></i>
 				<el-input type="text" style="width: 200px;" v-model="UserForm.username" placeholder="用户名"></el-input>
 			</el-form-item>
 			<el-form-item>
-				<el-input type="password" style="width: 200px;" v-model="UserForm.password" placeholder="密码"></el-input>
+				<el-input type="password" style="width: 200px;" v-model="UserForm.password" placeholder="密码" show-password></el-input>
 			</el-form-item>
 			<el-form-item>
 				<el-button type="primary" @click="submitForm('UserForm')">登陆</el-button>

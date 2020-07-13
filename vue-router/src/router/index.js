@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Index from '../views/Index.vue'
 import Form from '../views/Form.vue'
+import Button from '../views/Button.vue'
+import Menu from '../views/Menu.vue'
 Vue.use(VueRouter)
 
   const routes = [
@@ -28,6 +30,16 @@ Vue.use(VueRouter)
   	  path: '/form',
   	  name: 'From',
   	  component: Form
+  },
+  {
+	  path: '/button',
+	  name: 'Button',
+	  component: Button
+  },
+  {
+  	  path: '/menu',
+  	  name: 'Menu',
+  	  component: Menu
   }
 ]
 
