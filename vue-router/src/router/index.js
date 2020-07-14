@@ -5,6 +5,8 @@ import Index from '../views/Index.vue'
 import Form from '../views/Form.vue'
 import Button from '../views/Button.vue'
 import Menu from '../views/Menu.vue'
+import Container from '../views/Container.vue'
+import Container2 from '../views/Container2.vue'
 Vue.use(VueRouter)
 
   const routes = [
@@ -40,7 +42,17 @@ Vue.use(VueRouter)
   	  path: '/menu',
   	  name: 'Menu',
   	  component: Menu
-  }
+  },
+  {
+  	  path: '/container',
+  	  name: 'Container',
+  	  component: Container
+  },
+  {
+  	  path: '/container2',
+  	  name: 'Container2',
+  	  component: Container2
+  },
 ]
 
 const router = new VueRouter({

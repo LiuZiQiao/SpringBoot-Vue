@@ -6,7 +6,9 @@
       <router-link to="/about">About</router-link> |
 	  <router-link to="/form">Form</router-link> |
 	  <router-link to="/button">Button</router-link> |
-	  <router-link to="/menu">Menu</router-link>
+	  <router-link to="/menu">Menu</router-link>  |
+	  <router-link to="/container">Container</router-link>  |
+	  <router-link to="/container2">Container2</router-link>
 	</div>
     <router-view/>
   </div>
