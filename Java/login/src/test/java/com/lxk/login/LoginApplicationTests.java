@@ -4,7 +4,6 @@ import com.lxk.login.dao.UserDao;
 import com.lxk.login.entity.User;
 import com.lxk.login.service.UserService;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,10 +15,11 @@ class LoginApplicationTests {
 
     @Resource
     private UserService userService;
-    User user = null;
     @Test
     void contextLoads() {
-        user = userService.login(user);
+        String username = "";
+        String password = "";
+        User user = userService.login(username,password);
         System.out.println(user);
     }
 

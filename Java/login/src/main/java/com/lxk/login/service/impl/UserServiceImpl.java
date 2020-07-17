@@ -21,8 +21,8 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public User login(User user) {
-        User login = userDao.login(user);
+    public User login(String username,String password) {
+        User login = userDao.login(username,password);
         System.out.println(login);
         return login;
     }

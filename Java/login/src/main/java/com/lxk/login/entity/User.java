@@ -75,4 +75,17 @@ public class User {
     public void setLoginTime(Date loginTime) {
         this.loginTime = loginTime;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", realName='" + realName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", sex='" + sex + '\'' +
+                ", loginTime=" + loginTime +
+                '}';
+    }
 }
