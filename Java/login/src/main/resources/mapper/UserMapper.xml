@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lxk.login.dao.UserDao">
+    <resultMap id="BaseResultMap" type="com.lxk.login.entity.User">
+        <id column="userId" property="userId" jdbcType="BIGINT"></id>
+        <id column="userName" property="userName" jdbcType="VARCHAR"></id>
+        <id column="realName" property="realName" jdbcType="VARCHAR"></id>
+        <id column="email" property="email" jdbcType="VARCHAR"></id>
+        <id column="password" property="password" jdbcType="VARCHAR"></id>
+        <id column="sex" property="sex" jdbcType="CHAR"></id>
+        <id column="loginTime" property="loginTime" jdbcType="DATE"></id>
+    </resultMap>
+    <sql id="Base_Column_List">
+		userId,username,password,realname,sex,email,loginTime
+    </sql>
+
+    <select id="login" resultType="com.lxk.login.entity.User" resultMap="BaseResultMap">
+        select *from user;
+    </select>
+
+
+</mapper>
