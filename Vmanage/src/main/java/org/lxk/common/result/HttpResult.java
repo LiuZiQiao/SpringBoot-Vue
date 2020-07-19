@@ -1,12 +1,12 @@
-package com.sport.common.result;
+package org.lxk.common.result;
 
 import java.util.List;
 
 public class HttpResult<T> {
-    private  T obj; // 返回数据对象
-    private List<T> data; //返回数据列表
-    private boolean success = true; //成功提示
-    private String info; //提示
+    private  T obj; /* 返回数据对象 */
+    private List<T> data; /* 返回数据列表 */
+    private boolean success = true; /* 成功提示 */
+    private String info; /* 提示 */
 
     private Long iTotalRecords;
     private Long iTotalDisplayRecords;

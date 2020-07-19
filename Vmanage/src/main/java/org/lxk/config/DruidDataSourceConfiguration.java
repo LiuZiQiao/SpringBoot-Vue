@@ -1,4 +1,4 @@
-package com.sport.config;
+package org.lxk.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
@@ -22,7 +22,7 @@ import java.sql.SQLException;
  */
 @Configuration
 @EnableTransactionManagement
-@PropertySource(value = "classpath:application-test.properties", ignoreResourceNotFound = true)
+@PropertySource(value = "classpath:application.properties", ignoreResourceNotFound = true)
 public class DruidDataSourceConfiguration {
     @Value("${jdbc.datasource.driver}")
     private String driver;
@@ -149,8 +149,7 @@ public class DruidDataSourceConfiguration {
     @Scope("prototype")
     public JdkRegexpMethodPointcut druidStatPointcut() {
         JdkRegexpMethodPointcut pointcut = new JdkRegexpMethodPointcut();
-        System.out.println("---------------------");
-        pointcut.setPattern("com.sport.service.*");
+        pointcut.setPattern("org.lxk.service.*");
         return pointcut;
     }
 

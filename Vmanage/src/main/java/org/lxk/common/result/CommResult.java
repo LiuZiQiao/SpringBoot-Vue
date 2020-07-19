@@ -1,10 +1,13 @@
-package com.sport.common.result;
+package org.lxk.common.result;
 
-import com.sport.common.Contant;
+import org.lxk.common.Contant;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 
+/**
+ * @author macos
+ */
 public class CommResult implements Serializable {
     private static final long serialVersionUID = 1L;
 

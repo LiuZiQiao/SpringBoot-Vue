@@ -1,6 +1,7 @@
-package com.sport.common.utils;
+package org.lxk.common.utils;
 
 import org.apache.log4j.Logger;
+
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;

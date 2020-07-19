@@ -1,7 +1,10 @@
-package com.sport.common.entity;
+package org.lxk.common.entity;
 
 import java.io.Serializable;
 
+/**
+ * @author macos
+ */
 public class BasicEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     protected Long id;

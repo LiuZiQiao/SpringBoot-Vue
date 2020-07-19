@@ -1,4 +1,4 @@
-package com.sport.common.utils;
+package org.lxk.common.utils;
 
 import java.security.MessageDigest;
 

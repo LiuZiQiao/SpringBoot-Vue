@@ -1,4 +1,4 @@
-package com.sport.common;
+package org.lxk.common;
 
 public class Contant {
     //一天的毫秒数

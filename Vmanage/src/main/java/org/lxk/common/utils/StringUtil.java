@@ -1,9 +1,7 @@
-package com.sport.common.utils;
+package org.lxk.common.utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import net.sf.json.JSONObject;
 
 
 public class StringUtil {
@@ -13,7 +11,7 @@ public class StringUtil {
      *
      * @param phone
      * @return
-     * @author wangpan
+     * @author lxk
      * create date:2018年1月18日
      */
     public static String hidePhone(String phone) {
@@ -35,9 +33,9 @@ public class StringUtil {
     /**
      * 隐藏APPID中间8位
      *
-     * @param idNumber
+     * @param
      * @return
-     * @author wangpan
+     * @author lxk
      * create date:2018年1月19日
      */
     public static String hideAppId(String appId) {
@@ -49,7 +47,7 @@ public class StringUtil {
      *
      * @param idNumber
      * @return
-     * @author wangpan
+     * @author lxk
      * create date:2018年1月19日
      */
     public static String hideKey(String key) {
@@ -130,7 +128,6 @@ public class StringUtil {
     /**
      * @param code
      * @param num
-     * @param obj
      * @return
      * @description:自动补0
      * @time:2018年3月12日 下午3:18:48

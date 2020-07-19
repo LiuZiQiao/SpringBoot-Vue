@@ -1,4 +1,4 @@
-package com.sport.config;
+package org.lxk.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ import java.util.List;
 @EnableSwagger2
 public class SwaggerConfig {
 
-    /*
+    /**
      * swagger2的配置文件，这里可以配置swagger2的一些基本内容，比如扫描的包等等
      */
     @Bean
@@ -37,7 +37,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .globalOperationParameters(addParameters)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.sport.controller"))
+                .apis(RequestHandlerSelectors.basePackage("org.lxk.controller"))
                 .build()
                 .apiInfo(apiInfo());
     }
@@ -45,7 +45,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
                 .title("SpringBoot 集成Swagger2构建Restfu API")
-                .contact(new Contact("陕西科技大学运动会管理系统","http://localhost:8080/","1844861420@qq.com"))
+                .contact(new Contact("后台管理系统","http://localhost:8088/","1844861420@qq.com"))
                 .version("1.0")
                 .description("Api描述")
                 .build();
