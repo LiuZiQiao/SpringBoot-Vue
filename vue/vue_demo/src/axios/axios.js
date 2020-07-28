@@ -1,8 +1,7 @@
 import axios from 'axios'
 
 const service = axios.create({
-    // baseURL: global_.httpRequestUrl,
-    baseURL: 'http://localhost:8088/Vmanage',
+    baseURL: 'http://localhost:8088',
     withCredentials:true,
     headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
@@ -34,7 +33,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
     
     res => {
-        console.log(res.status+'----');
+        console.log(res+"11111111");
         
         if(res.data.code === 0){
           console.log("----------")

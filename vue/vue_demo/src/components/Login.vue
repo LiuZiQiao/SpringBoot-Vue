@@ -3,10 +3,10 @@
     <div class="ms-login">
       <div class="ms-title">Login</div>
       <el-form ref="loginForm" :model="loginParam" :rules="rules" label-width="100px">
-        <el-form-item :prop="username" label="用户名">
+        <el-form-item label="用户名">
           <el-input v-model="loginParam.username" type="text"></el-input>
         </el-form-item>
-        <el-form-item :prop="password" label="密码">
+        <el-form-item label="密码">
           <el-input v-model="loginParam.password" type="password"></el-input>
         </el-form-item>
 
@@ -22,33 +22,41 @@
 </template>
 
 <script>
-
   let handleLogin = function(){
     this.$refs.loginForm.validate((valid)=>{
       let httpUrl = ''
       if (valid) {
-        httpUrl = 'http://localhost:8088/user/login'
+        httpUrl = 'http://localhost:8088/user/login';
+
+        var loginParams = {
+          username: this.loginParam.username,
+          password: this.loginParam.password
+        };
+        console.log(loginParams)
+        this.$api.post(httpUrl,loginParams,response=>{
+          if(response.data.code==0){
+              sessionStorage.setItem('username', this.loginParam.username);
+              this.$router.push({
+                path: '/home'
+              })
+              this.$message({
+                type: 'success',
+                message: '欢迎登录：' + this.loginParam.username
+              })
+          }
+      })      
+        
       }
-
-      var loginParams = {
-        username: this.loginParam.username,
-        password: this.loginParam.password
-      };
-
-      axios.post(httpUrl,loginParams，response=>{
-
-      })
-
     })
   }
 
   let handleRegister = function(){
-
+    this.$router.push({
+      path: '/register'
+    })
   }
 
 export default {
-
-
   name: 'Login',
   data () {
     return {
