@@ -1,10 +1,12 @@
 package com.lxk.login.config;
 
-import org.apache.catalina.filters.CorsFilter;
+//import org.apache.catalina.filters.CorsFilter;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
@@ -12,6 +14,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  */
 @Configuration
 public class InterceptorConfiguration extends WebMvcConfigurerAdapter {
+
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        super.addInterceptors(registry);
+//    }
 
     private CorsConfiguration buildConfig() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
@@ -26,6 +33,6 @@ public class InterceptorConfiguration extends WebMvcConfigurerAdapter {
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", buildConfig());
-        return new CorsFilter();
+        return new CorsFilter(source);
     }
 }

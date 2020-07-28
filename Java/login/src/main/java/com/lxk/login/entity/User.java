@@ -11,7 +11,7 @@ public class User {
 
     private static final long serialVersionUID = 1L;
 
-    private String userId;
+    private int userId;
     private String userName;
     private String realName;
     private String password;
@@ -20,11 +20,11 @@ public class User {
     private Date loginTime;
 
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 

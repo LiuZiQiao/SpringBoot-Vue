@@ -26,4 +26,12 @@ public class UserServiceImpl implements UserService {
         System.out.println(login);
         return login;
     }
+
+    @Override
+    public boolean register(User user) {
+        if(userDao.register(user)){
+            return true;
+        }
+        return false;
+    }
 }

@@ -13,6 +13,9 @@
     <sql id="Base_Column_List">
 		userId,username,password,realname,sex,email,loginTime
     </sql>
+    <insert id="register">
+        insert into user(userId,userName,realName,email,password,sex,loginTime) value (#{userId},#{userName},#{realname},#{email},#{password},#{sex},#{loginTime})
+    </insert>
 
     <select id="login" resultType="com.lxk.login.entity.User" resultMap="BaseResultMap">
         select *from user;
