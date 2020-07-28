@@ -10,7 +10,7 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.transaction.TransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
@@ -25,13 +25,13 @@ import java.io.IOException;
 @Configuration
 @EnableTransactionManagement
 @Import(DruidDataSourceConfiguration.class)
-public class MybatisConfig implements TransactionManagementConfigurer {
+public class MyBatisConfiguration implements TransactionManagementConfigurer {
 
     @Resource(name = "dataSource")
     private DataSource dataSource;
 
     @Override
-    public TransactionManager annotationDrivenTransactionManager() {
+    public PlatformTransactionManager annotationDrivenTransactionManager() {
         return new DataSourceTransactionManager(dataSource);
     }
 
@@ -42,19 +42,25 @@ public class MybatisConfig implements TransactionManagementConfigurer {
         sqlSessionFactoryBean.setTypeAliasesPackage("com.lxk.login.entity");
         ResourceLoader resourceLoader = new DefaultResourceLoader();
         sqlSessionFactoryBean.setConfigLocation(resourceLoader.getResource("classpath:mybatis-config.xml"));
-        //xml路径设置
+
+        //设置mapper.xml路径
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        try{
+        try {
             sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:com/lxk/login/dao/mapper/*.xml"));
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
+
+//        PageInterceptor pageInterceptor = new PageInterceptor();
+//        Properties properties = new Properties();
+//        properties.setProperty("helperDialect","mysql");
+//        pageInterceptor.setProperties(properties);
 
         try {
             return sqlSessionFactoryBean.getObject();
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException();
+            throw new RuntimeException(e);
         }
     }
 }

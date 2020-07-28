@@ -4,21 +4,32 @@
     <resultMap id="BaseResultMap" type="com.lxk.login.entity.User">
         <id column="userId" property="userId" jdbcType="BIGINT"></id>
         <id column="userName" property="userName" jdbcType="VARCHAR"></id>
-        <id column="realName" property="realName" jdbcType="VARCHAR"></id>
+        <id column="realName" property="realname" jdbcType="VARCHAR"></id>
         <id column="email" property="email" jdbcType="VARCHAR"></id>
         <id column="password" property="password" jdbcType="VARCHAR"></id>
         <id column="sex" property="sex" jdbcType="CHAR"></id>
         <id column="loginTime" property="loginTime" jdbcType="DATE"></id>
     </resultMap>
     <sql id="Base_Column_List">
-		userId,username,password,realname,sex,email,loginTime
+		username,password,realname,sex,email,loginTime
     </sql>
-    <insert id="register">
+    <insert id="register" parameterType="com.lxk.login.entity.User" useGeneratedKeys="true" keyProperty="userId">
         insert into user(userId,userName,realName,email,password,sex,loginTime) value (#{userId},#{userName},#{realname},#{email},#{password},#{sex},#{loginTime})
     </insert>
 
+<!--    <insert id="register" parameterType="com.lxk.login.entity.User" >-->
+<!--        <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="userId">-->
+<!--            SELECT LAST_INSERT_ID()-->
+<!--        </selectKey>-->
+<!--        insert into user(userName,realName,email,password,sex,loginTime) value (#{userName},#{realname},#{email},#{password},#{sex},#{loginTime})-->
+<!--    </insert>-->
+
+
     <select id="login" resultType="com.lxk.login.entity.User" resultMap="BaseResultMap">
-        select *from user;
+        select *from user where(username=#{username} and password=#{password});
+    </select>
+    <select id="getId" resultType="java.lang.Integer">
+        SELECT COUNT(*) from user;
     </select>
 
 

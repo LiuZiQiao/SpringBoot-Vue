@@ -13,12 +13,11 @@ public class User {
 
     private int userId;
     private String userName;
-    private String realName;
+    private String realname;
     private String password;
     private String email;
     private String sex;
     private Date loginTime;
-
 
     public int getUserId() {
         return userId;
@@ -37,11 +36,11 @@ public class User {
     }
 
     public String getRealName() {
-        return realName;
+        return realname;
     }
 
-    public void setRealName(String realName) {
-        this.realName = realName;
+    public void setRealName(String realname) {
+        this.realname = realname;
     }
 
     public String getPassword() {
@@ -79,9 +78,9 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userId='" + userId + '\'' +
+                "userId=" + userId +
                 ", userName='" + userName + '\'' +
-                ", realName='" + realName + '\'' +
+                ", realName='" + realname + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", sex='" + sex + '\'' +

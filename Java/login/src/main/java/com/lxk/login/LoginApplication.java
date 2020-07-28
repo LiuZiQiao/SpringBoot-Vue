@@ -2,6 +2,7 @@ package com.lxk.login;
 
 import com.lxk.login.entity.User;
 import com.lxk.login.service.UserService;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import javax.annotation.Resource;
 /**
  * @author Administrator
  */
+@MapperScan("com.lxk.login.dao")
 @SpringBootApplication
 public class LoginApplication {
 

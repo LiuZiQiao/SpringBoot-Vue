@@ -21,15 +21,17 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public User login(String username,String password) {
-        User login = userDao.login(username,password);
+    public User login(String username, String password) {
+        User login = userDao.login(username, password);
         System.out.println(login);
         return login;
     }
 
     @Override
     public boolean register(User user) {
-        if(userDao.register(user)){
+        boolean flag = userDao.register(user);
+        System.out.println(flag);
+        if (flag) {
             return true;
         }
         return false;
