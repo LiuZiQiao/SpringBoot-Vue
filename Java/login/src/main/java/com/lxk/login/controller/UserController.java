@@ -30,6 +30,17 @@ public class UserController {
     }
 
     @ResponseBody
+    @PostMapping(value = "/test")
+    public String test(@Param("username")String username, @Param("password")String password){
+        User user = userService.login(username,password);
+        String msg = "";
+        if (user != null){
+            msg = "success";
+        }
+        return "failed";
+    }
+
+    @ResponseBody
     @RequestMapping("/")
     public String hello(){
         return  "hello";
