@@ -2,7 +2,7 @@
   <div class="login-warp">
     <div class="ms-login">
       <div class="ms-title">Login</div>
-      <el-form :model="loginParam" :rules="rules" label-width="100px">
+      <el-form ref="loginForm" :model="loginParam" :rules="rules" label-width="100px">
         <el-form-item :prop="username" label="用户名">
           <el-input v-model="loginParam.username" type="text"></el-input>
         </el-form-item>
@@ -12,8 +12,8 @@
 
         <el-form-item>
           <div class="login-btn">
-            <el-button type="primary" @click="submitForm">登录</el-button>
-            <el-button type="primary" @click="register">注册</el-button>
+            <el-button type="success" @click.native.prevent="handleLogin">登录</el-button>
+            <el-button type="primary" @click.native.prevent="handleRegister">注册</el-button>
           </div>
         </el-form-item>
       </el-form>
@@ -22,7 +22,33 @@
 </template>
 
 <script>
+
+  let handleLogin = function(){
+    this.$refs.loginForm.validate((valid)=>{
+      let httpUrl = ''
+      if (valid) {
+        httpUrl = 'http://localhost:8088/user/login'
+      }
+
+      var loginParams = {
+        username: this.loginParam.username,
+        password: this.loginParam.password
+      };
+
+      axios.post(httpUrl,loginParams，response=>{
+
+      })
+
+    })
+  }
+
+  let handleRegister = function(){
+
+  }
+
 export default {
+
+
   name: 'Login',
   data () {
     return {
@@ -37,9 +63,8 @@ export default {
     }
   },
   methods: {
-    submitForm() {
-        this.$refs.loginParam
-    }
+    handleLogin,
+    handleRegister
   },
 }
 </script>

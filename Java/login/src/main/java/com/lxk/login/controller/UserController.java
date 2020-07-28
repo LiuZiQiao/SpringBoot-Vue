@@ -3,16 +3,14 @@ package com.lxk.login.controller;
 import com.lxk.login.entity.User;
 import com.lxk.login.service.UserService;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
 /**
  * @author Administrator
  */
-@Controller
+@RestController
 @RequestMapping("user")
 public class UserController {
 
@@ -21,7 +19,7 @@ public class UserController {
 
 
     @ResponseBody
-    @RequestMapping("/login")
+    @PostMapping(value = "/login")
     public String login(@Param("username")String username, @Param("password")String password){
         User user = userService.login(username,password);
         String msg = "";
@@ -29,5 +27,11 @@ public class UserController {
             msg = "success";
         }
         return "failed";
+    }
+
+    @ResponseBody
+    @RequestMapping("/")
+    public String hello(){
+        return  "hello";
     }
 }
