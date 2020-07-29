@@ -1,10 +1,8 @@
 package com.lxk.login.dao;
 
 import com.lxk.login.entity.User;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
 /**
  * @author lxk
