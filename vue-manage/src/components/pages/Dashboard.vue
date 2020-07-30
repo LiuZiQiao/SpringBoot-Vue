@@ -12,11 +12,11 @@
                     </div>
                     <div class="user-info-list">
                         上次登录时间：
-                        <span>2019-11-01</span>
+                        <span>2020-7-20</span>
                     </div>
                     <div class="user-info-list">
                         上次登录地点：
-                        <span>东莞</span>
+                        <span>西安</span>
                     </div>
                 </el-card>
                 <el-card shadow="hover" style="height:252px;">

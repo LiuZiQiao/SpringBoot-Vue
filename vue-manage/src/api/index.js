@@ -41,14 +41,8 @@ service.interceptors.request.use(
 );
 
 service.interceptors.response.use(
-    
+
     res => {
-        console.log(res.status+'----');
-        
-        if(res.data.code === 0){
-          console.log("----------")
-        }
-        
         if (res.status === 200) {
             return Promise.resolve(res);
         } else {
@@ -56,7 +50,7 @@ service.interceptors.response.use(
         }
     },
     err => {
-        console.log(err);/////??????????
+        console.log(err);
         return Promise.reject(err);
     }
 );

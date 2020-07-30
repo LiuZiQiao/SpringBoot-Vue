@@ -48,7 +48,6 @@ export default {
                 username: this.param.username,
                 password: this.$md5(this.param.password)
             };
-            console.log(loginParams);
             this.$refs.login.validate(valid => {
                 if (valid) {
                     this.$api.post(httpUrl,loginParams,response=>{
@@ -58,7 +57,8 @@ export default {
                         localStorage.setItem('ms_username', this.param.username);
                         this.$router.push('/dashboard');
                       }else{
-
+                        this.$message.error(response.data.message);
+                        this.$router.push('/');
                       }
                     })
                 } else {
@@ -68,6 +68,9 @@ export default {
                 }
             });
         },
+        // regiterForm() {
+
+        // },
     },
 };
 </script>
