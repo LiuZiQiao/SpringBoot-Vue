@@ -74,7 +74,7 @@ public class StudentServiceImpl implements StudentService {
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(String id) {
+    public boolean deleteById(Integer id) {
         return this.studentMapper.deleteById(id) > 0;
     }
 }

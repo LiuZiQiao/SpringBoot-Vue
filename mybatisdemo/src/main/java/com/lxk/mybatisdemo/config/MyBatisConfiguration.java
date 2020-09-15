@@ -43,14 +43,14 @@ public class MyBatisConfiguration implements TransactionManagementConfigurer {
     public SqlSessionFactory sqlSessionFactory(){
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setTypeAliasesPackage("com.sport.entity");
+        sqlSessionFactoryBean.setTypeAliasesPackage("com.lxk.mybaitsdemo.entity");
         ResourceLoader resourceLoader = new DefaultResourceLoader();
         sqlSessionFactoryBean.setConfigLocation(resourceLoader.getResource("classpath:mybatis-config.xml"));
 
         //设置mapper.xml路径
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         try {
-            sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:com/sport/dao/mapper/*.xml"));
+            sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:com/lxk/mybaitsdemo/dao/mapper/*.xml"));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -9,7 +9,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableSwagger2
 @SpringBootApplication
-@MapperScan("com.lxk.mybatisdemo.dao.mapper")
+//@MapperScan("com.lxk.mybatisdemo.dao.mapper")
+//@ComponentScan(basePackages={"com.lxk.mybatisdemo.*"})
 public class MybatisdemoApplication {
 
     public static void main(String[] args) {

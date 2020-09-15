@@ -5,9 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
-/**
- * Created by sang on 2016/12/30.
- */
 @Entity
 @NamedQuery(name = "Person.withNameAndAddressNamedQuery",
         query = "select p from Person p where p.name=?1 and p.address=?2")

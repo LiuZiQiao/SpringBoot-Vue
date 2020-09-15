@@ -58,7 +58,7 @@ public class PersonController {
     @ApiOperation(value = "/deleteById")
     @PostMapping("/deleteById")
     public void deleteById(@RequestParam("id") Long id){
-        personRepository.deleteById(id);
+        personRepository.delete(id);
     }
 
 

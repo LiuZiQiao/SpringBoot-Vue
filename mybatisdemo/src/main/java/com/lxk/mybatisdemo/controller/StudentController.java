@@ -4,9 +4,11 @@ import com.lxk.mybatisdemo.entity.Student;
 import com.lxk.mybatisdemo.service.StudentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Api(value = "Student")
 @RestController
@@ -25,21 +27,31 @@ public class StudentController {
      * @return 单条数据
      */
     @ApiOperation(value = "selectOne")
-    @GetMapping("selectOne")
+    @GetMapping("/selectOne")
     public Student selectOne(@RequestParam("id") Integer id) {
         return this.studentService.queryById(id);
     }
 
     @ApiOperation(value = "insert")
-    @PostMapping("insert")
+    @PostMapping("/insert")
     public Student insert(@RequestBody Student student) {
         return this.studentService.insert(student);
     }
 
     @ApiOperation(value = "update")
-    @PostMapping("update")
+    @PostMapping("/update")
     public Student update(@RequestBody Student student) {
         return this.studentService.update(student);
     }
 
+    @ApiOperation(value = "queryAll")
+    @PostMapping("/queryAll")
+    public List<Student> queryAll(@RequestBody Student student) {
+        return this.studentService.queryAll(student);
+    }
+    @ApiOperation(value = "deleteByid")
+    @PostMapping("/deleteByid")
+    public boolean deleteByid(@RequestParam("id") Integer id){
+        return this.studentService.deleteById(id);
+    }
 }

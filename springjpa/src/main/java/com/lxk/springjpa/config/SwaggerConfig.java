@@ -17,8 +17,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @ClassName SwaggerConfig
  * @Remark
  */
-@Configuration
-@EnableSwagger2
+//@Configuration
+//@EnableSwagger2
 public class SwaggerConfig {
     /**
      * 创建API应用
@@ -37,7 +37,7 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.lxk.springjpa.jpa.*"))
                 .paths(PathSelectors.any())
-                .build();
+                .build().apiInfo(apiInfo());
     }
     /**
      * 创建该API的基本信息（这些基本信息会展现在文档页面中）
